@@ -357,7 +357,7 @@ TIER_COLORS = {
 # ── Data loading ────────────────────────────────────────────────────────────────
 DATA_DIR = Path("data/gold")
 
-@st.cache_data
+@st.cache_data(ttl=3600)
 def load_data():
     pitcher_df = pd.read_parquet(DATA_DIR / "bowler_game_summary.parquet")
     batter_df  = pd.read_parquet(DATA_DIR / "batsman_game_summary.parquet")
