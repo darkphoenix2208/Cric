@@ -174,7 +174,7 @@ CREATE TABLE deliveries (
     release_spin    FLOAT,          -- rpm
     pfx_x           FLOAT,          -- horizontal break (inches)
     pfx_z           FLOAT,          -- vertical break (inches)
-    plate_x         FLOAT,          -- location at plate
+    plate_x         FLOAT,          -- location at crease
     plate_z         FLOAT,
     zone            INTEGER,        -- 1-14 Ball Tracking zone
     description     VARCHAR,        -- called_strike, swinging_strike...
@@ -333,22 +333,22 @@ for train_idx, val_idx in tscv.split(X):
 **Example Output:**
 ```
 ═══════════════════════════════════════════════════════
-  BASEBALLIQ SCOUTING REPORT
+  CRICKETIQ SCOUTING REPORT
   Generated: 2024-07-15  |  Confidential — Internal Use
 ═══════════════════════════════════════════════════════
 
-BOWLER: Zack Wheeler  (#45, Philadelphia Phillies)
-GAME: July 14, 2024 vs. Atlanta Braves
+BOWLER: Jasprit Bumrah  (#45, IND)
+GAME: July 14, 2024 vs. AUS
 
 ─── GAME PERFORMANCE ───────────────────────────────────
 Deliveries Thrown:      104
-Avg Velocity:        95.8 mph  (↑ +0.9 vs. 30d avg)
+Avg Velocity:        145.8 kph  (↑ +0.9 vs. 30d avg)
 Play and Miss Rate:          34.2%     (league avg: 25.4%)  ★ ELITE
 Dot Ball Percentage:            33.7%     (league avg: 28.1%)  ★ ELITE
 expected_runs_per_ball Allowed:       .267      (league avg: .312)
-Delivery Mix:           FF 54% | SL 28% | CH 13% | CU 5%
+Delivery Mix:           Pace 54% | Yorker 28% | Slower 13% | Cutter 5%
 
-─── ML PREDICTION (next start) ─────────────────────────
+─── ML PREDICTION (next match) ─────────────────────────
 Predicted Dot Ball Percentage:  31.4%   [↑ above-average projection]
 Stuff Score:         87 / 100
 Top SHAP driver:     rolling_whiff_rate (+0.024)
@@ -356,14 +356,14 @@ Top SHAP driver:     rolling_whiff_rate (+0.024)
 ─── AI ANALYST SUMMARY ─────────────────────────────────
 Performance Tier:    ELITE
 
-Headline: "Wheeler's slider generated historic play_and_miss rates
-           against Atlanta's lineup."
+Headline: "Bumrah's yorker generated historic play_and_miss rates
+           against Australia's lineup."
 
-Key Finding: Wheeler's slider produced a 52% play_and_miss rate —
+Key Finding: Bumrah's yorker produced a 52% play_and_miss rate —
 third-highest in a single game this season. His velocity
-remained above 95 mph through the 7th over, suggesting
+remained above 145 kph through the 18th over, suggesting
 no fatigue-related decline. Particularly effective bowling
-to the outer third against left-handed hitters.
+to the outer third against left-handed batsmen.
 
 Concern Flag: None identified.
 ═══════════════════════════════════════════════════════
@@ -376,7 +376,7 @@ Concern Flag: None identified.
 | Page | Key Charts |
 |---|---|
 | **Bowler Explorer** | Velocity trend line, delivery mix donut, play_and_miss rate heatmap by zone, Dot Ball Percentage sparklines |
-| **Batsman Explorer** | Exit velocity distribution, expected_runs_per_ball rolling average, barrel rate by delivery type |
+| **Batsman Explorer** | Exit velocity distribution, expected_runs_per_ball rolling average, boundary rate by delivery type |
 | **Team Trends** | Win probability over season, bullpen usage, rotation Dot Ball Percentage trends |
 | **AI Scouting Reports** | Player selector → renders full AI report inline |
 

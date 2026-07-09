@@ -50,17 +50,17 @@ The tradeoff: DuckDB is less familiar to data scientists who live in Pandas. In 
 
 ## The Machine Learning Component: Getting the Target Right
 
-Most bowler ML projects predict ERA or WHIP. Both are wrong targets for a game-level prediction model.
+Most bowler ML projects predict Economy Rate or Bowling Average. Both are wrong targets for a game-level prediction model.
 
-**ERA** is heavily influenced by sequencing, defense, and strand rates — factors a bowler controls only partially. **WHIP** mixes two different outcome types (hits and extras) without weighting them. Both are also highly variable game-to-game.
+**Economy Rate** is heavily influenced by sequencing, fielding, and match situations — factors a bowler controls only partially. **Bowling Average** mixes two different outcome types without weighting them. Both are also highly variable game-to-game.
 
-**Dot Ball Percentage** (called strikes + whiffs / total deliveries) is my target because:
-1. It measures what the bowler directly controls: inducing chases and weak contact
-2. It stabilizes faster than ERA (meaningful at ~40 deliveries; ERA needs ~100 overs)
-3. Modern front offices use it as their primary in-game bowler quality indicator
+**Dot Ball Percentage** (called dot balls and play-and-misses / total deliveries) is my target because:
+1. It measures what the bowler directly controls: inducing false shots and weak contact
+2. It stabilizes faster than Economy Rate
+3. Modern teams use it as their primary in-game bowler quality indicator
 4. It has a strong predictive relationship with next-game outcomes
 
-The features are all about trending: 30-day rolling Dot Ball Percentage, velocity delta vs. baseline, play_and_miss rate momentum. The model answers: *given how this bowler has been bowling recently, how dominant will they be in their next start?*
+The features are all about trending: 30-day rolling Dot Ball Percentage, velocity delta vs. baseline, play_and_miss rate momentum. The model answers: *given how this bowler has been bowling recently, how dominant will they be in their next match?*
 
 ### The Cross-Validation Decision That Matters Most
 
@@ -78,7 +78,7 @@ My first instinct was to use the LLM as a core analytical layer — have Claude 
 
 **The problem with LLM-first analytics:**
 - LLMs are unreliable calculators. Asking Claude to compute batting averages or compare percentiles produces plausible-sounding but occasionally incorrect numbers.
-- The outputs are not auditable. When the GM asks "why does this report say the barrel rate was 12.4%?", you need to trace that to a DuckDB query, not to a language model's reasoning.
+- The outputs are not auditable. When the coach asks "why does this report say the boundary rate was 12.4%?", you need to trace that to a DuckDB query, not to a language model's reasoning.
 - It's expensive to call at query time for every statistic.
 
 **The correct architecture:** LLM as enrichment layer.
@@ -139,7 +139,7 @@ This is actually a reasonable production pattern: pre-aggregate expensive comput
 
 **SHAP values are non-negotiable for sports analytics.** The scouting report doesn't just say "projected Dot Ball Percentage: 30.8%." It says "the top driver of this prediction is rolling_30d_whiff_rate (+0.018)." This is the difference between a model an analyst will trust and one they'll ignore.
 
-**Domain knowledge is a multiplier.** Choosing Dot Ball Percentage over ERA, understanding that play_and_miss rate stabilizes faster than other metrics, knowing that barrel rate is the right proxy for contact quality — these decisions came from studying how analytics departments actually think, not from the data itself. The engineering was straightforward once the domain framing was right.
+**Domain knowledge is a multiplier.** Choosing Dot Ball Percentage over Economy Rate, understanding that play_and_miss rate stabilizes faster than other metrics, knowing that boundary rate is the right proxy for contact quality — these decisions came from studying how analytics departments actually think, not from the data itself. The engineering was straightforward once the domain framing was right.
 
 **The LLM layer is genuinely useful — when it's scoped correctly.** The scouting reports are better with AI-generated narrative than without. But only because the system never asks the LLM to be a calculator. Scoping AI to synthesis and language, not computation, is the insight that made the integration work.
 
@@ -163,4 +163,4 @@ The repo is fully open — feel free to use it as a starting point, extend it, o
 
 ---
 
-*Tags: #MLBanalytics #DataEngineering #MachineLearning #LLM #Python #DuckDB #Streamlit #SportsAnalytics*
+*Tags: #CricketAnalytics #DataEngineering #MachineLearning #LLM #Python #DuckDB #Streamlit #SportsAnalytics*

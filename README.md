@@ -61,7 +61,7 @@ GOLD (Parquet)         pitcher_game_summary · batter_game_summary
 DuckDB runs complex SQL window functions (30-day rolling averages, cross-bowler percentiles) on millions of rows in seconds with no cluster. The Gold layer aggregation SQL is more readable, testable, and 3-5x faster than equivalent Pandas code. It also produces Parquet-native output, keeping the pipeline stateless.
 
 **Why Dot Ball Percentage as the ML target?**
-Called strikes + whiffs / total deliveries is the strongest single-game bowler quality signal, preferred by front offices over ERA (noisy, defense-dependent), K% (does not capture command), or WHIP (context-dependent). Dot Ball Percentage is also more stable across small samples, making it a better regression target.
+Dot Ball Percentage (which we define in our model based on dot balls and play-and-miss) is the strongest single-game bowler quality signal, preferred by analysts over economy rate (noisy, defense-dependent) or raw wickets (does not capture command). Dot Ball Percentage is also more stable across small samples, making it a better regression target.
 
 **Why time-series cross-validation?**
 Standard k-fold shuffles the data, allowing the model to train on future games. In production, you never have future data. TimeSeriesSplit preserves temporal ordering each validation fold is strictly after its training fold. This is the most common ML leakage mistake in sports analytics portfolios.
@@ -165,7 +165,7 @@ No secrets are required for the demo dashboard because the repo includes cached 
 
 ## ML Model: Bowler Effectiveness
 
-**Target:** Dot Ball Percentage (called strikes + whiffs / total deliveries)
+**Target:** Dot Ball Percentage
 
 **Features:**
 - `rolling_30d_csw_rate` — recent baseline
@@ -185,20 +185,20 @@ No secrets are required for the demo dashboard because the repo includes cached 
 ## Example Scouting Report Output
 
 ```
-BASEBALLIQ SCOUTING REPORT · Internal Use Only
+CRICKETIQ SCOUTING REPORT · Internal Use Only
 
-BOWLER: Marcus Delgado (LAD)
-GAME: July 6, 2024 vs. HOU    GRADE: A (92nd percentile)
+BOWLER: Jasprit Bumrah (IND)
+GAME: July 6, 2024 vs. AUS    GRADE: A (92nd percentile)
 
 GAME STATS
   Deliveries:     98
-  Avg Velo:    96.2 mph  (+0.7 vs. 30d avg)
+  Avg Velo:    146.2 kph  (+0.7 vs. 30d avg)
   Play and Miss Rate:  33.8%  ELITE
   Dot Ball Percentage:    32.1%  ELITE
   expected_runs_per_ball:       .261
 
 ML PREDICTION
-  Next start projected Dot Ball Percentage:  30.8%
+  Next match projected Dot Ball Percentage:  30.8%
   Top SHAP drivers:
     1. rolling_30d_whiff_rate   +0.018
     2. pace_vs_30d_avg          +0.011
@@ -207,14 +207,14 @@ ML PREDICTION
 AI ANALYST SUMMARY
   Tier: ELITE
 
-  "Delgado's slider was historic generated 41% play_and_miss rate
-  against Houston's right-handed lineup."
+  "Bumrah's yorker was historic generated 41% play_and_miss rate
+  against Australia's right-handed lineup."
 
-  Key Finding: Elite velocity held above 96 mph through the
-  7th over with no fatigue-related decline. Delivery mix
-  entropy suggests unpredictable sequencing that kept hitters
+  Key Finding: Elite velocity held above 145 kph through the
+  18th over with no fatigue-related decline. Delivery mix
+  entropy suggests unpredictable sequencing that kept batsmen
   from sitting on any single delivery. The .261 expected_runs_per_ball allowed
-  ranks in the 89th percentile for starters this season.
+  ranks in the 89th percentile for bowlers this season.
 
   Concern Flag: None identified.
 ```
