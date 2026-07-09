@@ -990,3 +990,4 @@ Respond ONLY with valid JSON (no markdown):
     apply_template(fig, showlegend=False, height=280)
     fig.update_yaxes(tickformat=".0%", range=[0, recent_starts["dot_ball_percentage"].max() * 1.25])
     st.plotly_chart(fig, use_container_width=True)
+

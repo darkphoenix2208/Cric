@@ -231,3 +231,4 @@ class TestDemoData:
         assert "headline"   in sample_insight
         assert "key_finding" in sample_insight
 
+

@@ -344,3 +344,4 @@ if __name__ == "__main__":
         if anomaly:
             logger.info("Top anomaly: %s", json.dumps(anomaly, indent=2))
 
+

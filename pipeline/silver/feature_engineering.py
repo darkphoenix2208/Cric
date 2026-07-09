@@ -236,3 +236,4 @@ if __name__ == "__main__":
     with duckdb.connect(str(DUCKDB_PATH)) as con:
         run_all(con)
 
+

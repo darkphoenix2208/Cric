@@ -52,3 +52,4 @@ LEAGUE_AVG = {
 for _dir in [BRONZE_DIR, SILVER_DIR, GOLD_DIR, MODELS_DIR, REPORTS_DIR]:
     _dir.mkdir(parents=True, exist_ok=True)
 
+

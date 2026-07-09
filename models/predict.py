@@ -88,3 +88,4 @@ class PitcherPredictor:
         df["stuff_score"]        = np.clip((preds - 0.18) / 0.20 * 100, 0, 100).astype(int)
         return df
 
+

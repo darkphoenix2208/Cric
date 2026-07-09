@@ -43,3 +43,4 @@ venv311/
 
 .streamlit/secrets.toml
 *.exe
+

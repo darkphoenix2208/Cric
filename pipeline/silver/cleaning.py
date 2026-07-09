@@ -127,3 +127,4 @@ if __name__ == "__main__":
         create_players_table(con)
         logger.info("Silver layer complete: %s", DUCKDB_PATH)
 
+
