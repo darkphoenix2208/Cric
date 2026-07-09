@@ -131,3 +131,4 @@ if __name__ == "__main__":
     parser.add_argument("--end",   required=True, help="End date YYYY-MM-DD (inclusive)")
     args = parser.parse_args()
     ingest_date_range(args.start, args.end)
+

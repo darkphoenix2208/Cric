@@ -235,3 +235,4 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     with duckdb.connect(str(DUCKDB_PATH)) as con:
         run_all(con)
+

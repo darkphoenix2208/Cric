@@ -343,3 +343,4 @@ if __name__ == "__main__":
         anomaly = writer.detect_anomalies(args.date)
         if anomaly:
             logger.info("Top anomaly: %s", json.dumps(anomaly, indent=2))
+

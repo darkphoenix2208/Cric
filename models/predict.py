@@ -87,3 +87,4 @@ class PitcherPredictor:
         df["predicted_csw_rate"] = preds.round(4)
         df["stuff_score"]        = np.clip((preds - 0.18) / 0.20 * 100, 0, 100).astype(int)
         return df
+

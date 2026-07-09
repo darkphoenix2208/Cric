@@ -126,3 +126,4 @@ if __name__ == "__main__":
         load_bronze_to_silver(con)
         create_players_table(con)
         logger.info("Silver layer complete: %s", DUCKDB_PATH)
+

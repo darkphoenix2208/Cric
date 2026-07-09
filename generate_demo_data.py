@@ -318,3 +318,4 @@ if __name__ == "__main__":
     print(f"Generated {len(insights)} pre-generated LLM insights")
     print(f"Generated {len(players_df)} players")
     print(f"\nFiles written to: {OUT_DIR.resolve()}")
+

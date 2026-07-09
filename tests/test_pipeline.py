@@ -230,3 +230,4 @@ class TestDemoData:
         assert "pitcher_id" in sample_insight
         assert "headline"   in sample_insight
         assert "key_finding" in sample_insight
+

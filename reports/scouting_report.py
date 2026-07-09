@@ -378,3 +378,4 @@ if __name__ == "__main__":
             with open(out, "w") as f:
                 json.dump(asdict(report), f, indent=2, default=str)
             logger.info("JSON report saved: %s", out)
+
