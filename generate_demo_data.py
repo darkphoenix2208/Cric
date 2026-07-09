@@ -306,8 +306,8 @@ if __name__ == "__main__":
     insights   = generate_llm_insights(pitcher_df)
     players_df = generate_players(BOWLERS, BATTERS)
 
-    pitcher_df.to_parquet(OUT_DIR / "pitcher_game_summary.parquet", index=False)
-    batter_df.to_parquet(OUT_DIR  / "batter_game_summary.parquet",  index=False)
+    pitcher_df.to_parquet(OUT_DIR / "bowler_game_summary.parquet", index=False)
+    batter_df.to_parquet(OUT_DIR  / "batsman_game_summary.parquet",  index=False)
     players_df.to_parquet(OUT_DIR / "players.parquet",              index=False)
 
     with open(OUT_DIR / "llm_insights.json", "w") as f:

@@ -359,8 +359,8 @@ DATA_DIR = Path("data/gold")
 
 @st.cache_data
 def load_data():
-    pitcher_df = pd.read_parquet(DATA_DIR / "pitcher_game_summary.parquet")
-    batter_df  = pd.read_parquet(DATA_DIR / "batter_game_summary.parquet")
+    pitcher_df = pd.read_parquet(DATA_DIR / "bowler_game_summary.parquet")
+    batter_df  = pd.read_parquet(DATA_DIR / "batsman_game_summary.parquet")
     players_df = pd.read_parquet(DATA_DIR / "players.parquet")
     with open(DATA_DIR / "llm_insights.json") as f:
         insights = json.load(f)

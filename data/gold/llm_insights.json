@@ -19,7 +19,7 @@
     "headline": "Rashid was untouchable \u2014 elite swing-and-miss stuff all night.",
     "key_finding": "Rashid generated a 37% play_and_miss rate, well above the league average of 25.4%. Velocity held steady above 94 kph through the 18th over with no signs of fatigue. Particularly dominant bowling to the outer third against right-handed batsmen.",
     "concern_flag": null,
-    "pitch_mix_note": "Pace-heavy mix (est. ~62%) with yorker as primary variation."
+    "pitch_mix_note": "Pace-heavy mix (est. ~59%) with yorker as primary variation."
   },
   {
     "pitcher_id": 1006,
@@ -41,7 +41,7 @@
     "headline": "Jasprit was sharp, controlling both sides of the crease effectively.",
     "key_finding": "A 32% Dot Ball Percentage reflects consistent zone presence combined with above-average chase rates. Jasprit's delivery mix diversity (entropy: 0.90) kept batsmen off-balance, contributing to soft contact when they did make contact.",
     "concern_flag": null,
-    "pitch_mix_note": "Pace-heavy mix (est. ~54%) with cutter as primary variation."
+    "pitch_mix_note": "Pace-heavy mix (est. ~51%) with cutter as primary variation."
   },
   {
     "pitcher_id": 1010,
@@ -52,7 +52,7 @@
     "headline": "Mustafizur was sharp, controlling both sides of the crease effectively.",
     "key_finding": "A 30% Dot Ball Percentage reflects consistent zone presence combined with above-average chase rates. Mustafizur's delivery mix diversity (entropy: 1.27) kept batsmen off-balance, contributing to soft contact when they did make contact.",
     "concern_flag": null,
-    "pitch_mix_note": "Pace-heavy mix (est. ~51%) with cutter as primary variation."
+    "pitch_mix_note": "Pace-heavy mix (est. ~50%) with yorker as primary variation."
   },
   {
     "pitcher_id": 1005,
@@ -129,7 +129,7 @@
     "headline": "Pat was sharp, controlling both sides of the crease effectively.",
     "key_finding": "A 30% Dot Ball Percentage reflects consistent zone presence combined with above-average chase rates. Pat's delivery mix diversity (entropy: 1.31) kept batsmen off-balance, contributing to soft contact when they did make contact.",
     "concern_flag": null,
-    "pitch_mix_note": "Pace-heavy mix (est. ~53%) with yorker as primary variation."
+    "pitch_mix_note": "Pace-heavy mix (est. ~57%) with yorker as primary variation."
   },
   {
     "pitcher_id": 1001,
@@ -162,7 +162,7 @@
     "headline": "Kagiso was sharp, controlling both sides of the crease effectively.",
     "key_finding": "A 30% Dot Ball Percentage reflects consistent zone presence combined with above-average chase rates. Kagiso's delivery mix diversity (entropy: 1.52) kept batsmen off-balance, contributing to soft contact when they did make contact.",
     "concern_flag": null,
-    "pitch_mix_note": "Pace-heavy mix (est. ~59%) with cutter as primary variation."
+    "pitch_mix_note": "Pace-heavy mix (est. ~53%) with cutter as primary variation."
   },
   {
     "pitcher_id": 1003,
@@ -195,7 +195,7 @@
     "headline": "Pat was sharp, controlling both sides of the crease effectively.",
     "key_finding": "A 30% Dot Ball Percentage reflects consistent zone presence combined with above-average chase rates. Pat's delivery mix diversity (entropy: 1.37) kept batsmen off-balance, contributing to soft contact when they did make contact.",
     "concern_flag": null,
-    "pitch_mix_note": "Pace-heavy mix (est. ~56%) with cutter as primary variation."
+    "pitch_mix_note": "Pace-heavy mix (est. ~54%) with yorker as primary variation."
   },
   {
     "pitcher_id": 1007,
@@ -217,6 +217,6 @@
     "headline": "Mohammed was untouchable \u2014 elite swing-and-miss stuff all night.",
     "key_finding": "Mohammed generated a 42% play_and_miss rate, well above the league average of 25.4%. Velocity held steady above 99 kph through the 18th over with no signs of fatigue. Particularly dominant bowling to the outer third against right-handed batsmen.",
     "concern_flag": null,
-    "pitch_mix_note": "Pace-heavy mix (est. ~56%) with yorker as primary variation."
+    "pitch_mix_note": "Pace-heavy mix (est. ~59%) with cutter as primary variation."
   }
 ]
