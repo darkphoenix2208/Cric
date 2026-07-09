@@ -34,30 +34,30 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # ── Real-ish bowler roster (fictional names, real archetypes) ──────────────────
 BOWLERS = [
-    {"id": 1001, "name": "Marcus Delgado",   "team": "LAD", "archetype": "ace",       "hand": "R"},
-    {"id": 1002, "name": "Tyler Wren",        "team": "HOU", "archetype": "power",     "hand": "R"},
-    {"id": 1003, "name": "Carlos Fuentes",    "team": "ATL", "archetype": "finesse",   "hand": "L"},
-    {"id": 1004, "name": "Jake Nordstrom",    "team": "NYY", "archetype": "groundball","hand": "R"},
-    {"id": 1005, "name": "Devon Okafor",      "team": "SD",  "archetype": "swing_and_miss","hand": "R"},
-    {"id": 1006, "name": "Liam Castillo",     "team": "BOS", "archetype": "average",   "hand": "L"},
-    {"id": 1007, "name": "Brendan Marsh",     "team": "CHC", "archetype": "declining", "hand": "R"},
-    {"id": 1008, "name": "Hiro Tanaka",       "team": "NYM", "archetype": "ace",       "hand": "R"},
-    {"id": 1009, "name": "Rafael Montoya",    "team": "PHI", "archetype": "power",     "hand": "R"},
-    {"id": 1010, "name": "Garrett Ellis",     "team": "SEA", "archetype": "finesse",   "hand": "L"},
+    {"id": 1001, "name": "Jasprit Bumrah",   "team": "IND", "archetype": "ace",       "hand": "R"},
+    {"id": 1002, "name": "Pat Cummins",      "team": "AUS", "archetype": "power",     "hand": "R"},
+    {"id": 1003, "name": "Mitchell Starc",   "team": "AUS", "archetype": "finesse",   "hand": "L"},
+    {"id": 1004, "name": "Trent Boult",      "team": "NZ",  "archetype": "groundball","hand": "L"},
+    {"id": 1005, "name": "Rashid Khan",      "team": "AFG", "archetype": "swing_and_miss","hand": "R"},
+    {"id": 1006, "name": "Shaheen Afridi",   "team": "PAK", "archetype": "average",   "hand": "L"},
+    {"id": 1007, "name": "Jofra Archer",     "team": "ENG", "archetype": "declining", "hand": "R"},
+    {"id": 1008, "name": "Kagiso Rabada",    "team": "SA",  "archetype": "ace",       "hand": "R"},
+    {"id": 1009, "name": "Mohammed Shami",   "team": "IND", "archetype": "power",     "hand": "R"},
+    {"id": 1010, "name": "Mustafizur Rahman","team": "BAN", "archetype": "finesse",   "hand": "L"},
 ]
 
 BATTERS = [
-    {"id": 2001, "name": "Jordan Alvarez",   "team": "HOU", "archetype": "power_hitter"},
-    {"id": 2002, "name": "Kenji Matsuda",    "team": "LAD", "archetype": "contact"},
-    {"id": 2003, "name": "Dominic Reyes",    "team": "ATL", "archetype": "elite_exit_velo"},
-    {"id": 2004, "name": "Sam Kowalski",     "team": "NYY", "archetype": "average"},
-    {"id": 2005, "name": "Trevor Baptiste",  "team": "SD",  "archetype": "high_obp"},
-    {"id": 2006, "name": "Isaiah Tran",      "team": "BOS", "archetype": "power_hitter"},
-    {"id": 2007, "name": "Mateo Vega",       "team": "CHC", "archetype": "contact"},
-    {"id": 2008, "name": "Andre Wilson",     "team": "PHI", "archetype": "elite_exit_velo"},
+    {"id": 2001, "name": "Virat Kohli",      "team": "IND", "archetype": "power_hitter"},
+    {"id": 2002, "name": "Steve Smith",      "team": "AUS", "archetype": "contact"},
+    {"id": 2003, "name": "Babar Azam",       "team": "PAK", "archetype": "elite_exit_velo"},
+    {"id": 2004, "name": "Joe Root",         "team": "ENG", "archetype": "average"},
+    {"id": 2005, "name": "Kane Williamson",  "team": "NZ",  "archetype": "high_obp"},
+    {"id": 2006, "name": "Rohit Sharma",     "team": "IND", "archetype": "power_hitter"},
+    {"id": 2007, "name": "David Warner",     "team": "AUS", "archetype": "contact"},
+    {"id": 2008, "name": "Quinton de Kock",  "team": "SA",  "archetype": "elite_exit_velo"},
 ]
 
-TEAMS = ["LAD","HOU","ATL","NYY","SD","BOS","CHC","NYM","PHI","SEA","TOR","SF","MIA","MIN","CLE"]
+TEAMS = ["IND","AUS","ENG","SA","PAK","NZ","WI","SRI","AFG","BAN","IRE","ZIM"]
 
 ARCHETYPE_PARAMS = {
     "ace":            {"velo": 95.5, "dot_ball_percentage": 0.315, "play_and_miss": 0.305, "expected_runs_per_ball": 0.268},
@@ -206,35 +206,35 @@ def generate_llm_insights(pitcher_df: pd.DataFrame) -> list[dict]:
         "elite": {
             "tiers": [
                 {"headline": "{name} was untouchable — elite swing-and-miss stuff all night.",
-                 "key_finding": "{name} generated a {play_and_miss:.0%} play_and_miss rate, well above the league average of 25.4%. Velocity held steady above {velo:.0f} mph through the 7th over with no signs of fatigue. Particularly dominant bowling to the outer third against right-handed hitters.",
+                 "key_finding": "{name} generated a {play_and_miss:.0%} play_and_miss rate, well above the league average of 25.4%. Velocity held steady above {velo:.0f} kph through the 18th over with no signs of fatigue. Particularly dominant bowling to the outer third against right-handed batsmen.",
                  "concern_flag": None},
             ]
         },
         "above_avg": {
             "tiers": [
-                {"headline": "{name} was sharp, controlling both sides of the plate effectively.",
-                 "key_finding": "A {dot_ball_percentage:.0%} Dot Ball Percentage reflects consistent zone presence combined with above-average chase rates. {name}'s delivery mix diversity (entropy: {div:.2f}) kept hitters off-balance, contributing to soft contact when they did make contact.",
+                {"headline": "{name} was sharp, controlling both sides of the crease effectively.",
+                 "key_finding": "A {dot_ball_percentage:.0%} Dot Ball Percentage reflects consistent zone presence combined with above-average chase rates. {name}'s delivery mix diversity (entropy: {div:.2f}) kept batsmen off-balance, contributing to soft contact when they did make contact.",
                  "concern_flag": None},
             ]
         },
         "average": {
             "tiers": [
-                {"headline": "{name} battled but relied on defense for a solid outing.",
-                 "key_finding": "Velocity was down {vdelta:.1f} mph from the 30-day baseline, though command compensated with a {zone:.0%} zone rate. expected_runs_per_ball allowed of {expected_runs_per_ball:.3f} is near league average — no dominant delivery stood out today.",
-                 "concern_flag": "Velocity dip worth monitoring over the next two starts."},
+                {"headline": "{name} battled but relied on fielders for a solid outing.",
+                 "key_finding": "Velocity was down {vdelta:.1f} kph from the 30-day baseline, though line and length compensated with a {zone:.0%} stump line rate. expected_runs_per_ball allowed of {expected_runs_per_ball:.3f} is near league average — no dominant delivery stood out today.",
+                 "concern_flag": "Velocity dip worth monitoring over the next two matches."},
             ]
         },
         "below_avg": {
             "tiers": [
-                {"headline": "{name} struggled with command, issued multiple hard-hit balls.",
-                 "key_finding": "A barrel rate allowed of {barrel:.0%} is well above the league average of 7.8%, indicating poor delivery location when behind in counts. Whiff rate of {play_and_miss:.0%} suggests hitters were comfortable laying off breaking balls.",
-                 "concern_flag": "High barrel rate in back-to-back starts warrants mechanical review."},
+                {"headline": "{name} struggled with line, issued multiple boundaries.",
+                 "key_finding": "A boundary rate allowed of {barrel:.0%} is well above the league average of 7.8%, indicating poor delivery location when under pressure. Play and miss rate of {play_and_miss:.0%} suggests batsmen were comfortable laying off spin and slower variations.",
+                 "concern_flag": "High boundary rate in back-to-back matches warrants mechanical review."},
             ]
         },
         "poor": {
             "tiers": [
-                {"headline": "{name} was tagged early — stuff was below-average across all deliveries.",
-                 "key_finding": "Velocity sat {velo:.0f} mph, down {vdelta:.1f} mph from recent baseline. Dot Ball Percentage of {dot_ball_percentage:.0%} is the lowest of his last 6 starts. Opposing hitters squared up fastballs repeatedly, suggesting tipping or mechanical inconsistency.",
+                {"headline": "{name} was tagged early — pace was below-average across all deliveries.",
+                 "key_finding": "Velocity sat {velo:.0f} kph, down {vdelta:.1f} kph from recent baseline. Dot Ball Percentage of {dot_ball_percentage:.0%} is the lowest of his last 6 matches. Opposing batsmen squared up pace deliveries repeatedly, suggesting tipping or mechanical inconsistency.",
                  "concern_flag": "Immediate mechanics review recommended — possible fatigue or injury signal."},
             ]
         },
@@ -272,7 +272,7 @@ def generate_llm_insights(pitcher_df: pd.DataFrame) -> list[dict]:
             "headline":      headline,
             "key_finding":   key_finding,
             "concern_flag":  tmpl["concern_flag"],
-            "pitch_mix_note": f"Fastball-heavy mix (est. ~{random.randint(48,62)}%) with {random.choice(['slider','curveball','changeup'])} as primary off-speed." if tier in ["elite","above_avg"] else None,
+            "pitch_mix_note": f"Pace-heavy mix (est. ~{random.randint(48,62)}%) with {random.choice(['slower ball','cutter','yorker'])} as primary variation." if tier in ["elite","above_avg"] else None,
         })
 
     return insights
@@ -281,9 +281,9 @@ def generate_llm_insights(pitcher_df: pd.DataFrame) -> list[dict]:
 def generate_players(bowlers: list, batters: list) -> pd.DataFrame:
     rows = []
     for p in bowlers:
-        rows.append({"player_id": p["id"], "full_name": p["name"], "team": p["team"], "position": "SP", "hand": p["hand"]})
+        rows.append({"player_id": p["id"], "full_name": p["name"], "team": p["team"], "position": "Bowler", "hand": p["hand"]})
     for b in batters:
-        rows.append({"player_id": b["id"], "full_name": b["name"], "team": b["team"], "position": "OF/1B", "hand": "R"})
+        rows.append({"player_id": b["id"], "full_name": b["name"], "team": b["team"], "position": "Batsman", "hand": "R"})
     return pd.DataFrame(rows)
 
 
