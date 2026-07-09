@@ -263,6 +263,9 @@ def generate_llm_insights(pitcher_df: pd.DataFrame) -> list[dict]:
             div     = row["variation_diversity"],
         )
 
+        variation = random.choice(['slower ball', 'cutter', 'yorker'])
+        pitch_mix_note = f"Pace-heavy mix (est. ~{random.randint(48,62)}%) with {variation} as primary variation." if tier in ["elite","above_avg"] else None
+
         insights.append({
             "pitcher_id":    int(row["pitcher_id"]),
             "pitcher_name":  row["pitcher_name"],
@@ -272,7 +275,7 @@ def generate_llm_insights(pitcher_df: pd.DataFrame) -> list[dict]:
             "headline":      headline,
             "key_finding":   key_finding,
             "concern_flag":  tmpl["concern_flag"],
-            "pitch_mix_note": f"Pace-heavy mix (est. ~{random.randint(48,62)}%) with {random.choice(['slower ball','cutter','yorker'])} as primary variation." if tier in ["elite","above_avg"] else None,
+            "pitch_mix_note": pitch_mix_note,
         })
 
     return insights
