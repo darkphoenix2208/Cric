@@ -413,8 +413,8 @@ Concern Flag: None identified.
 
 ```bash
 # Clone and install
-git clone https://github.com/darkphoneix/cricketiq
-cd cricketiq
+git clone https://github.com/darkphoenix2208/Cric.git
+cd Cric
 uv sync
 
 # Set environment variables

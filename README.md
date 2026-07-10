@@ -104,8 +104,8 @@ cricketiq/
 The fastest way to explore CricketIQ is through the Streamlit dashboard. The repo includes pre-generated demo data in `data/gold/`, so visitors can run the app without API keys or a full data pipeline.
 
 ```bash
-git clone https://github.com/darkphoneix/cricketiq
-cd cricketiq
+git clone https://github.com/darkphoenix2208/Cric.git
+cd Cric
 pip install -r requirements.txt
 streamlit run dashboard/app.py
 ```
@@ -125,8 +125,8 @@ The dashboard uses cached synthetic Ball Tracking-style data and cached LLM-styl
 **Option A: Dashboard demo**
 
 ```bash
-git clone https://github.com/darkphoneix/cricketiq
-cd cricketiq
+git clone https://github.com/darkphoenix2208/Cric.git
+cd Cric
 pip install -r requirements.txt
 streamlit run dashboard/app.py
 ```
@@ -223,7 +223,7 @@ AI ANALYST SUMMARY
 
 ## Data Source
 
-International Cricket Ball Tracking via [Cricsheet](https://github.com/jldbc/pybaseball) - free, public, ~3M delivery events per International Cricket season. The demo ships with synthetic data calibrated to real 2024 Ball Tracking distributions. Run `make ingest` to pull live data.
+International Cricket Ball Tracking via [Cricsheet](https://cricsheet.org/) - free, public, ~3M delivery events per International Cricket season. The demo ships with synthetic data calibrated to real 2024 Ball Tracking distributions. Run `make ingest` to pull live data.
 
 ---
 

@@ -8,7 +8,7 @@ After spending time studying how analytics departments inside International Cric
 
 This post is not a tutorial. It's a write-up of every meaningful engineering decision I made, why I made it, and what the alternatives were.
 
-**[GitHub](https://github.com/darkphoneix/cricketiq) · [Live Demo](https://cricketiq.streamlit.app)**
+**[GitHub](https://github.com/darkphoenix2208/Cric.git) · [Live Demo](https://cricketiq.streamlit.app)**
 
 ---
 
@@ -155,7 +155,7 @@ The obvious extensions:
 
 The repo is fully open — feel free to use it as a starting point, extend it, or reference the architecture.
 
-**[GitHub → CricketIQ](https://github.com/darkphoneix/cricketiq)**
+**[GitHub → CricketIQ](https://github.com/darkphoenix2208/Cric.git)**
 
 ---
 
